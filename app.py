@@ -8,7 +8,7 @@ app = dash.Dash()
 
 # Import dataset
 
-df = pd.read_csv('C:/Users/Mar/Cloud Computing/Plotting/nama_10_gdp_1_Data.csv') 
+df = pd.read_csv('nama_10_gdp_1_Data.csv') 
 
 
 df1 = df[df['UNIT'] == 'Current prices, million euro']
