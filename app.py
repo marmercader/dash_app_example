@@ -1,5 +1,3 @@
-### Step 1
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -8,6 +6,7 @@ import pandas as pd
 
 app = dash.Dash()
 
+# Import dataset
 
 df = pd.read_csv('C:/Users/Mar/Cloud Computing/Plotting/nama_10_gdp_1_Data.csv') 
 
@@ -17,8 +16,9 @@ available_indicators = df['NA_ITEM'].unique()
 available_countries = df['GEO'].unique()
 
 app.layout = html.Div([
-    # Graph 1 - "scatterplot with two DropDown boxes for the different indicators. 
-    # It will have also a slide for the different years in the data
+    
+# Graph 1 scatter plot
+
     html.Div([
 
         html.Div([
@@ -51,8 +51,8 @@ app.layout = html.Div([
     ),
             ),
     
-    # Graph 2 - line chart with two DropDown boxes, one for the country 
-    # and the other for selecting one of the indicators
+# Graph 2 line chart
+
     html.Div([
         
         html.Div([
@@ -152,6 +152,6 @@ def update_graph(xaxis_column_name, yaxis_column_name):
         )
     }
 
-#run server for dashboard
+#Run
 if __name__ == '__main__':
     app.run_server()
