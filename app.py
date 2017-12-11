@@ -1,8 +1,3 @@
-
-# coding: utf-8
-
-# In[3]:
-
 ### Step 1
 
 import dash
@@ -11,14 +6,9 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import pandas as pd
 
-#In order to be able to create a python version (GitHub)
-app = dash.Dash(__name__)
-  server = app.server
-    
-    app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-    
-    
-#Get data
+app = dash.Dash()
+
+
 df = pd.read_csv('C:/Users/Mar/Cloud Computing/Plotting/nama_10_gdp_1_Data.csv') 
 
 
@@ -27,7 +17,7 @@ available_indicators = df['NA_ITEM'].unique()
 available_countries = df['GEO'].unique()
 
 app.layout = html.Div([
-    # Graph 1 - scatter plot
+    # Graph 1 - "scatterplot with two DropDown boxes for the different indicators. 
     # It will have also a slide for the different years in the data
     html.Div([
 
@@ -36,7 +26,7 @@ app.layout = html.Div([
                 id='xaxis-column-1',
                 options=[{'label': i, 'value': i} for i in available_indicators],
                 value='Gross domestic product at market prices'
-            )
+            ),
         ],
         style={'width': '48%', 'display': 'inline-block'}),
 
@@ -61,7 +51,7 @@ app.layout = html.Div([
     ),
             ),
     
-    # Graph 2 - line chart 
+    # Graph 2 - line chart with two DropDown boxes, one for the country 
     # and the other for selecting one of the indicators
     html.Div([
         
@@ -72,7 +62,7 @@ app.layout = html.Div([
                 value='Gross domestic product at market prices'
             )
         ],
-        style={'width': '48%', 'display': 'inline-block'}),
+        style={'width': '48%', 'marginTop': 40, 'display': 'inline-block'}),
         
         html.Div([
             dcc.Dropdown( 
@@ -165,4 +155,3 @@ def update_graph(xaxis_column_name, yaxis_column_name):
 #run server for dashboard
 if __name__ == '__main__':
     app.run_server()
-
