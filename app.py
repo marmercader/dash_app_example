@@ -37,7 +37,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='yaxis-column-1',
                 options=[{'label': i, 'value': i} for i in available_indicators],
-                value='Exports of goods'
+                value='Final consumption expenditure'
             )
         ],style={'width': '48%', 'float': 'right', 'display': 'inline-block'})
     ]),
@@ -71,7 +71,7 @@ app.layout = html.Div([
             dcc.Dropdown( 
                 id='yaxis-column-2',
                 options=[{'label': i, 'value': i} for i in available_countries],
-                value= "Spain"
+                value= "Italy"
                 
             )
         ],style={'width': '30%', 'marginTop': 40, 'float': 'right', 'display': 'inline-block'})
@@ -102,8 +102,8 @@ def update_graph(xaxis_column_name, yaxis_column_name,
             mode='markers',
             marker={
                 'size': 15,
-                'opacity': 0.5,
-                'line': {'width': 0.5, 'color': 'white'}
+                'opacity': 0.4,
+                'line': {'width': 1, 'color': 'black'}
             }
         )],
         'layout': go.Layout(
@@ -137,8 +137,8 @@ def update_graph(xaxis_column_name, yaxis_column_name):
             mode='lines',
             marker={
                 'size': 15,
-                'opacity': 0.5,
-                'line': {'width': 0.5, 'color': 'white'}
+                'opacity': 0.4,
+                'line': {'width': 1, 'color': 'black'}
             }
         )],
         'layout': go.Layout(
